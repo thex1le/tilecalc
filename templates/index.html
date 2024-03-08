@@ -81,8 +81,9 @@
         <button type="submit", name="calc_tile_boxes">Calculate Number of Tile Boxes and Cost</button>
     </form>
         {% if session.get('conversion_type') == 'tile_boxes' %}
-	<h3>Number of boxes required and rounded to nearest whole box: {{ session.get('boxes_required') }} with a total cost of ${{ session.get('total_cost') }}
-		Number of boxes required with 10% waste and rounded to nearest whole box: {{ session.get('boxes_required_waste') }} with a total cost of ${{ session.get('total_cost_w_waste') }} {% endif %}</h3>
+	<h3>Number of boxes required and rounded to nearest whole box: {{ session.get('boxes_required') }} with a total cost of ${{ session.get('total_cost') }} {% endif %} </h3>
+        {% if session.get('conversion_type') == 'tile_boxes' %}
+	<h3>Number of boxes required with 10% waste and rounded to nearest whole box: {{ session.get('boxes_required_waste') }} with a total cost of ${{ session.get('total_cost_w_waste') }} {% endif %}</h3>
     <h1>Measurement Conversion Tools</h1>
     <!-- Millimeters to Inches Conversion Form -->
     <form method="POST">
