@@ -58,7 +58,6 @@ def home():
         session['conversion_type'] = conversion_type
         
         if 'calc_tile_boxes' in request.form:
-            print(request.form)
             tile_sq_ft = float(request.form.get('tileSqft', 1))
             room_sqft = float(request.form.get('roomSqft', 1))
             cost_sqft = float(request.form.get('costSqft', 0))
@@ -67,10 +66,7 @@ def home():
             cost_per_box = tile_sq_ft * cost_sqft
             boxes_needed = room_sqft / tile_sq_ft
             boxes_needed_rounded = math.ceil(boxes_needed)
-            print(boxes_needed)
             boxes_need_w_waste = math.ceil(boxes_needed + (boxes_needed * .1))
-            print(boxes_needed + (boxes_needed * .1))
-            print(boxes_need_w_waste)
             total_cost = boxes_needed_rounded * cost_per_box
             total_cost_w_waste = boxes_need_w_waste * cost_per_box
             # Save the inputs, units, and the result in session
@@ -81,7 +77,6 @@ def home():
             session['total_cost_w_waste'] = round(total_cost_w_waste, 3)
             session['cost_per_sqft'] = cost_sqft
             session['tile_square_footage'] = tile_sq_ft
-            print(total_cost_w_waste)
 
         if 'tile_calc_sq_foot' in request.form:
             length = float(request.form.get('length', 0))
